@@ -94,7 +94,7 @@ class FluxerHTTP:
 class FluxerGateway:
     """Fluxer WebSocket Gateway bağlantısı."""
 
-    def __init__(self, token: str, intents: int = 32767):
+    def __init__(self, token: str, intents: int = 0):
         self.token = token
         self.intents = intents
         self.http = FluxerHTTP(token)
@@ -131,7 +131,7 @@ class FluxerGateway:
             "op": OP_IDENTIFY,
             "d": {
                 "token": self.token,
-                "intents": self.intents,
+                "intents": 0,
                 "properties": {
                     "$os": "linux",
                     "$browser": "FluxerBot",
